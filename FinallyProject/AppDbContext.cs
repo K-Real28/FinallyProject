@@ -1,0 +1,17 @@
+﻿using FinallyProject.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace FinallyProject
+{
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options): base(options)
+        {
+            Database.EnsureCreated();
+        }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Polyclinic> Polyclinics { get; set; }
+        public DbSet<Specialization> Specializations { get; set; }
+    }
+}
