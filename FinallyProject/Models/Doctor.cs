@@ -2,11 +2,17 @@
 
 namespace FinallyProject.Models
 {
-    public class Doctor : NamedBaseEnity
+    public class Doctor : BaseEntity
     {
-        public IList<Specialization> Specializations { get; set; } = new List<Specialization>();
-        public IList<Polyclinic> Polyclinics { get; set; } = new List<Polyclinic>();
-        public string Short_info { get; set; }
-        public string Full_info { get; set; }
+        public string? FullName { get; set; }
+        public string? ShortInfo { get; set; }
+        public string? FullInfo { get; set; }
+        public uint? CostOfVisit { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? ExpOfSpec { get; set; }
+        public string? Photo { get; set; }
+
+        public List<SpecializationDoctor> SpecializationDoctors { get; set; } = new();
+        public List<PolyclinicDoctor> PolyclinicDoctors { get; set; } = new();
     }
 }

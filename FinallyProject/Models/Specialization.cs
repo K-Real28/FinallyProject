@@ -4,5 +4,6 @@ namespace FinallyProject.Models
 {
     public class Specialization : NamedBaseEnity
     {
+
     }
 }

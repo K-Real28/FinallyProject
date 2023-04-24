@@ -7,11 +7,13 @@ namespace FinallyProject.Models
     {
         public int? CityId { get; set; }
         [ForeignKey("CityId")]
-        public City City { get; set; }
+        public City? City { get; set; }
 
-        public string Address { get; set; }
-        public int Number { get; set; }
+        public string? Address { get; set; }
+        public uint? PhoneNumber { get; set; }
+        public string? Photo { get; set; }
 
-        //public string Image { get; set; }
+        public List<PolyclinicDoctor> PolyclinicDoctors { get; set; } = new();
+        public List<SpecializationDoctor> SpecializationDoctors { get; set; } = new();
     }
 }
