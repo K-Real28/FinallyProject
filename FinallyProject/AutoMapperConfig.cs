@@ -7,20 +7,14 @@ using FinallyProject.Models;
 
 namespace FinallyProject
 {
-    public class AutoMapperConfig
+    public class AutoMapperConfig : Profile
     {
-        public static IMapper Initialize()
+        public AutoMapperConfig()
         {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<City, CityDto>();
-                cfg.CreateMap<Doctor, DoctorDto>();
-                cfg.CreateMap<Polyclinic, PolyclinicDto>();
-                cfg.CreateMap<Specialization, SpecializationDto>();
-            });
-
-            IMapper mapper = config.CreateMapper();
-            return mapper;
+            CreateMap<City, CityDto>();             
+            CreateMap<Doctor, DoctorDto>();             
+            CreateMap<Polyclinic, PolyclinicDto>();             
+            CreateMap<Specialization, SpecializationDto>();             
         }
     }
 }

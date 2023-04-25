@@ -1,4 +1,6 @@
-﻿using FinallyProject.Models;
+﻿using AutoMapper;
+using FinallyProject.Dto.Cities;
+using FinallyProject.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,11 +16,19 @@ namespace FinallyProject.Controllers
         {
             _context = context;
         }
+
+        private readonly IMapper _mapper;
+        public CitiesController(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
+
         // GET: 
         [HttpGet]
         [Route("GetCity")]
         public ActionResult<List<City>> GetCities()
         {
+            //return Ok(Cities.Select(City => _mapper.Map<CityDto>(City)); 
             return _context.Cities.ToList();
         }
 

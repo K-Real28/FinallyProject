@@ -1,3 +1,4 @@
+using AutoMapper;
 using FinallyProject;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql("name=ConnectionStrings:DefaultConnection"));
 builder.Services.AddSwaggerGen();
 //builder.Services.AddSpaStaticFiles();
+builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 var app = builder.Build();
 
@@ -28,7 +30,6 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
     });
 }
-
 
 app.UseSpa(spa =>
 {
