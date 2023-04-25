@@ -31,7 +31,6 @@ namespace FinallyProject.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -88,7 +87,6 @@ namespace FinallyProject.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<long?>("PhoneNumber")
@@ -136,7 +134,6 @@ namespace FinallyProject.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -210,7 +207,7 @@ namespace FinallyProject.Migrations
                         .HasForeignKey("PolyclinicId");
 
                     b.HasOne("FinallyProject.Models.Specialization", "Specialization")
-                        .WithMany()
+                        .WithMany("SpecializationDoctors")
                         .HasForeignKey("SpecializationId");
 
                     b.Navigation("Doctor");
@@ -234,6 +231,11 @@ namespace FinallyProject.Migrations
                 {
                     b.Navigation("PolyclinicDoctors");
 
+                    b.Navigation("SpecializationDoctors");
+                });
+
+            modelBuilder.Entity("FinallyProject.Models.Specialization", b =>
+                {
                     b.Navigation("SpecializationDoctors");
                 });
 #pragma warning restore 612, 618

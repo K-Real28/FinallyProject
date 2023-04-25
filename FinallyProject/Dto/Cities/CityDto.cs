@@ -1,15 +1,14 @@
-﻿using AutoMapper;
+﻿using FinallyProject.Dto.Polyclinics;
 using FinallyProject.Models;
-using System;
 
 namespace FinallyProject.Dto.Cities
 {
     public class CityDto
     {
-        IMapper mapper = AutoMapperConfig.Initialize();
+        public int? Id { get; set; }
+        public string? Name { get; set; }
 
-        //List<City> name = GetName();
-        //List<CityDto> dtos = mapper.Map<List<CityDto>>(q);
+        public List<PolyclinicDto> Polyclinics { get; set; } = new();
 
     }
 }

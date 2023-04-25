@@ -40,7 +40,7 @@ app.UseSpa(spa =>
     }
 });
 app.Services.CreateScope().ServiceProvider.GetRequiredService<AppDbContext>();
-//app.UseSpaStaticFiles();
+
 app.UseHttpsRedirection();
 
 app.UseDefaultFiles();
